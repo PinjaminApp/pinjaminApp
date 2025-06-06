@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pinjamBarang">Pinjam Barang</string>
+    <string name="sewakanBarang">Sewakan Barang</string>
+    <string name="profile">Profile</string>
+</resources>
