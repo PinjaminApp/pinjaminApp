@@ -6,4 +6,7 @@
     <string name="pinjamBarang">Pinjam Barang</string>
     <string name="sewakanBarang">Sewakan Barang</string>
     <string name="profile">Profile</string>
+    <string name="kategori">nama kategori</string>
+    <string name="nama_barang">Air Fryer</string>
+    <string name="alamat">Sukasari</string>
 </resources>
