@@ -26,11 +26,10 @@
         android:textAlignment="center"
         android:textSize="22sp"
         android:textStyle="bold"
+        android:text="Nanang ismail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_user_profile"
-        app:tint="?attr/colorOnSurface"
-        tools:text="Nanang Ismail"/>
+        app:layout_constraintTop_toBottomOf="@+id/iv_user_profile" />
 
     <TextView
         android:id="@+id/iv_user_email"
@@ -41,7 +40,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_user_name"
-        tools:text="nanangismail@gmail.com" />
+        android:text="nanangismail@gmail.com" />
 
     <!--<androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/btn_edit_profile"

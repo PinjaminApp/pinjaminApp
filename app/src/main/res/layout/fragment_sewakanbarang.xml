@@ -7,9 +7,10 @@
     tools:context=".ui.sewakanBarang.SewakanBarangFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:padding="24dp"
         android:id="@+id/rvSewakanbarang"
         android:layout_width="409dp"
-        android:layout_height="354dp"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

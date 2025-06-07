@@ -16,7 +16,7 @@ class SewakanBarangAdapter(private val listSewakanBarang: ArrayList<SewakanBaran
         val  textJumlahPenyewa: TextView = itemView.findViewById(R.id.text_jumlah_penyewa)
         val  textRating: TextView = itemView.findViewById(R.id.text_rating)
         val  textReview: TextView = itemView.findViewById(R.id.text_review)
-        val  imgBarang: ImageView = itemView.findViewById(R.id.img_barang)
+        val  imgBarang: ImageView = itemView.findViewById(R.id.imageProduct)
     }
 
     override fun onCreateViewHolder(

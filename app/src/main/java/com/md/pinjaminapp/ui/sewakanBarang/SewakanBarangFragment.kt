@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.md.pinjaminapp.R
@@ -23,6 +24,10 @@ class SewakanBarangFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSewakanbarangBinding.inflate(inflater, container, false)
+        (requireActivity() as AppCompatActivity).supportActionBar?.apply {
+            show() // Menampilkan kembali AppBar (jika sebelumnya disembunyikan)
+            title = "Sewakan Barang" // Ganti judul AppBar
+        }
 
         setupRecyclerView()
         loadDummyData()
@@ -47,6 +52,31 @@ class SewakanBarangFragment : Fragment() {
                 rating = "4.8",
                 review = "(131 reviews)"
             )
+
+        )
+        listBarang.add(
+            SewakanBarang(
+                namaBarang = "Air fryer",
+                gambar = R.drawable.airfryer, // pastikan gambar ini ada di drawable
+                status = "Tersedia",
+                harga = "Rp 10.000/hari",
+                jumlahPenyewa = "200",
+                rating = "4.8",
+                review = "(131 reviews)"
+            )
+
+        )
+        listBarang.add(
+            SewakanBarang(
+                namaBarang = "Air fryer",
+                gambar = R.drawable.airfryer, // pastikan gambar ini ada di drawable
+                status = "Tersedia",
+                harga = "Rp 10.000/hari",
+                jumlahPenyewa = "200",
+                rating = "4.8",
+                review = "(131 reviews)"
+            )
+
         )
         // Tambahkan data lain jika perlu
         adapter.notifyDataSetChanged()
