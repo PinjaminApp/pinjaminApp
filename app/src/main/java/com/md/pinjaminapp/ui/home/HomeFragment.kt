@@ -11,8 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.md.pinjaminapp.R
 import com.md.pinjaminapp.databinding.FragmentHomeBinding
+import com.md.pinjaminapp.ui.pinjamBarang.DetailBarangFragment
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), ListBarangAdapter.OnItemClickListener {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -51,8 +52,8 @@ class HomeFragment : Fragment() {
 
         // Setup adapter
         listKategoriAdapter = ListKategoriAdapter(dummyKategori)
-        listBarangAdapter = ListBarangAdapter(dummyBarang)
-        listRekomendasiAdapter = ListBarangAdapter(dummyBarang) // contoh, bisa diganti data rekomendasi asli
+        listBarangAdapter = ListBarangAdapter(dummyBarang, this)
+        listRekomendasiAdapter = ListBarangAdapter(dummyBarang, this) // contoh, bisa diganti data rekomendasi asli
 
         val spacingInPixels = resources.getDimensionPixelSize(R.dimen.recycler_item_spacing)
         // Setup RecyclerView kategori (horizontal)
@@ -95,6 +96,25 @@ class HomeFragment : Fragment() {
             setHasFixedSize(true)
         }
     }
+
+    // Implementasi metode onItemClick dari interface ListBarangAdapter.OnItemClickListener
+    override fun onItemClick(barang: Barang) {
+        // Buat instance DetailBarangFragment
+        val detailFragment = DetailBarangFragment()
+
+        // Buat Bundle untuk meneruskan data ke DetailBarangFragment
+        val bundle = Bundle().apply {
+            putString("nama", barang.nama)
+            putInt("gambarResId", barang.gambar)
+            putString("lokasi", barang.alamat)
+            putString("jarak", barang.jarak)
+            putString("harga", barang.harga)
+            // Anda bisa menambahkan data lain yang ada di objek Barang atau
+            // yang Anda butuhkan di DetailBarangFragment.
+        }
+        detailFragment.arguments = bundle // Set arguments ke fragment
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

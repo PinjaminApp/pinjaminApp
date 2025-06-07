@@ -1,4 +1,4 @@
-package com.md.pinjaminapp.ui.home
+package com.md.pinjaminapp.ui.home // Sesuaikan dengan package adapter Anda
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,38 +7,48 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.md.pinjaminapp.R
-import com.md.pinjaminapp.ui.home.ListKategoriAdapter.ListViewHolder
 
-class ListBarangAdapter (private val listBarang: ArrayList<Barang>): RecyclerView.Adapter<ListBarangAdapter.ListViewHolder>() {
+class ListBarangAdapter(
+    private val listBarang: ArrayList<Barang>,
+    private val listener: OnItemClickListener
+) : RecyclerView.Adapter<ListBarangAdapter.ListViewHolder>() {
 
-    class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    // 1. Definisi interface click listener
+    interface OnItemClickListener {
+        fun onItemClick(barang: Barang)
+    }
+
+    inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imgBarang: ImageView = itemView.findViewById(R.id.img_barang)
         val textNamaBarang: TextView = itemView.findViewById(R.id.text_nama_barang)
         val textAlamat: TextView = itemView.findViewById(R.id.text_alamat)
         val textJarak: TextView = itemView.findViewById(R.id.text_jarak)
         val textHarga: TextView = itemView.findViewById(R.id.text_harga)
 
-    }
-    override fun getItemCount(): Int {
-        return listBarang.size
+        init {
+            // 3. Set OnClickListener pada root view item
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    listener.onItemClick(listBarang[position]) // Panggil listener dengan data barang
+                }
+            }
+        }
     }
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): ListViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_barang, parent, false)
-        return com.md.pinjaminapp.ui.home.ListBarangAdapter.ListViewHolder(view)
+        return ListViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ListBarangAdapter.ListViewHolder, position: Int) {
-        val (nama, gambar, alamat, jarak, harga) = listBarang[position]
-        holder.imgBarang.setImageResource(gambar)
-        holder.textNamaBarang.text = nama
-        holder.textAlamat.text = alamat
-        holder.textJarak.text = jarak
-        holder.textHarga.text = harga
-
-
+    override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
+        val barang = listBarang[position]
+        holder.imgBarang.setImageResource(barang.gambar)
+        holder.textNamaBarang.text = barang.nama
+        holder.textAlamat.text = barang.alamat
+        holder.textJarak.text = barang.jarak
+        holder.textHarga.text = barang.harga
     }
+
+    override fun getItemCount(): Int = listBarang.size
 }
