@@ -7,11 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.md.pinjaminapp.R
 import com.md.pinjaminapp.databinding.FragmentHomeBinding
-import com.md.pinjaminapp.ui.pinjamBarang.DetailBarangFragment
+
 
 class HomeFragment : Fragment(), ListBarangAdapter.OnItemClickListener {
 
@@ -97,22 +98,10 @@ class HomeFragment : Fragment(), ListBarangAdapter.OnItemClickListener {
         }
     }
 
-    // Implementasi metode onItemClick dari interface ListBarangAdapter.OnItemClickListener
     override fun onItemClick(barang: Barang) {
-        // Buat instance DetailBarangFragment
-        val detailFragment = DetailBarangFragment()
-
-        // Buat Bundle untuk meneruskan data ke DetailBarangFragment
-        val bundle = Bundle().apply {
-            putString("nama", barang.nama)
-            putInt("gambarResId", barang.gambar)
-            putString("lokasi", barang.alamat)
-            putString("jarak", barang.jarak)
-            putString("harga", barang.harga)
-            // Anda bisa menambahkan data lain yang ada di objek Barang atau
-            // yang Anda butuhkan di DetailBarangFragment.
-        }
-        detailFragment.arguments = bundle // Set arguments ke fragment
+        // Gunakan Safe Args untuk navigasi dan meneruskan objek Barang
+        val action = HomeFragmentDirections.actionNavigationHomeToDetailBarangFragment(barang)
+        findNavController().navigate(action)
     }
 
 

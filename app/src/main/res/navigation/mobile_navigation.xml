@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.md.pinjaminapp.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_detailBarangFragment"
+            app:destination="@id/detailBarangFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_sewakanBarang"
@@ -34,5 +38,15 @@
         android:name="com.md.pinjaminapp.ui.profile.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile"/>
+
+    <fragment
+        android:id="@+id/detailBarangFragment"
+        android:name="com.md.pinjaminapp.ui.pinjamBarang.DetailBarangFragment"
+        android:label="Detail Barang"
+        tools:layout="@layout/fragment_detail_barang">
+        <argument
+        android:name="barang"
+        app:argType="com.md.pinjaminapp.ui.home.Barang"
+        app:nullable="false" /> </fragment>
 
 </navigation>
