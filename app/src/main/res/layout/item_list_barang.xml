@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_gravity="center"
+    android:layout_marginVertical="8dp"
+    card_view:cardCornerRadius="15dp"
+    card_view:cardElevation="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_barang"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:scaleType="centerCrop"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:shapeAppearanceOverlay="@style/ShapeCornerRadius_10dp"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/tv_nama_barang"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            card_view:layout_constraintStart_toEndOf="@+id/iv_barang"
+            card_view:layout_constraintTop_toTopOf="@+id/iv_barang"
+            tools:text="Nama produk" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Rp10.000/day"
+            android:textSize="16sp"
+            card_view:layout_constraintBottom_toBottomOf="@+id/iv_barang"
+            card_view:layout_constraintStart_toStartOf="@+id/tv_nama_barang" />
+
+        <!-- Minus Button -->
+        <ImageButton
+            android:id="@+id/btn_decrease"
+            app:tint="@color/black"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#f9f5f1"
+            android:contentDescription="Kurangi"
+            android:src="@drawable/ic_minus"
+            card_view:layout_constraintBottom_toBottomOf="@+id/tv_days"
+            card_view:layout_constraintEnd_toStartOf="@+id/tv_days"
+            card_view:layout_constraintTop_toTopOf="@+id/tv_days" />
+
+        <TextView
+            android:id="@+id/tv_days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="4 days"
+            android:textSize="16sp"
+            card_view:layout_constraintBottom_toBottomOf="@+id/btn_increase"
+            card_view:layout_constraintEnd_toStartOf="@+id/btn_increase"
+            card_view:layout_constraintTop_toTopOf="@+id/btn_increase" />
+
+        <!-- Plus Button -->
+        <ImageButton
+            android:id="@+id/btn_increase"
+            app:tint="@color/black"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#f9f5f1"
+            android:contentDescription="Tambah"
+            android:src="@drawable/ic_plus"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
