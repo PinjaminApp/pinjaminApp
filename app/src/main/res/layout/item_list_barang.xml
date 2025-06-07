@@ -51,7 +51,6 @@
         <!-- Minus Button -->
         <ImageButton
             android:id="@+id/btn_decrease"
-            app:tint="@color/black"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginEnd="8dp"
@@ -76,7 +75,6 @@
         <!-- Plus Button -->
         <ImageButton
             android:id="@+id/btn_increase"
-            app:tint="@color/black"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginEnd="16dp"
