@@ -9,4 +9,6 @@
     <string name="kategori">nama kategori</string>
     <string name="nama_barang">Air Fryer</string>
     <string name="alamat">Sukasari</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
